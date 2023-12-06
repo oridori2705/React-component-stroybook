@@ -11,10 +11,7 @@
     "plugin:react-hooks/recommended",
     "plugin:storybook/recommended"
   ],
-  "ignorePatterns": [
-    "dist",
-    ".eslintrc.cjs"
-  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
@@ -24,16 +21,5 @@
       "version": "18.2"
     }
   },
-  "plugins": [
-    "react",
-    "prettier"
-  ],
-  "rules": {
-    "react-refresh/only-export-components": [
-      "warn",
-      {
-        "allowConstantExport": true
-      }
-    ]
-  }
+  "plugins": ["react", "prettier"]
 }
