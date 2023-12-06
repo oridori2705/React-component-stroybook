@@ -1,4 +1,5 @@
 import './Text.css'
+import PropTypes from 'prop-types'
 
 const Text = ({
   children,
@@ -42,5 +43,24 @@ const Text = ({
   )
 }
 
+Text.propTypes = {
+  children: PropTypes.node.isRequired,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  block: PropTypes.bool,
+  paragraph: PropTypes.bool,
+  delete: PropTypes.bool,
+  code: PropTypes.bool,
+  underline: PropTypes.bool,
+  mark: PropTypes.bool,
+  strong: PropTypes.bool,
+  color: PropTypes.string,
+  props: PropTypes.shape({
+    // HTMLAttributes에 포함된 일부 속성을 명시적으로 지정
+    className: PropTypes.string,
+    id: PropTypes.string,
+    onClick: PropTypes.func
+    // 필요한 경우 다른 속성 추가
+  })
+}
 
 export default Text
