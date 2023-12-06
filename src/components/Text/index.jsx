@@ -54,6 +54,7 @@ Text.propTypes = {
   mark: PropTypes.bool,
   strong: PropTypes.bool,
   color: PropTypes.string,
+  style: PropTypes.object,
   props: PropTypes.shape({
     // HTMLAttributes에 포함된 일부 속성을 명시적으로 지정
     className: PropTypes.string,
