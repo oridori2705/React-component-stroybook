@@ -1,3 +1,11 @@
+function App() {
+  return <div></div>
+}
+
+export default App
+
+/*
+// 이모지 검색 APP
 import { useState } from 'react'
 import EmojiHeader from './components/EmojiHeader'
 import SearchBox from './components/EmojiSearchBox'
@@ -20,3 +28,5 @@ function App() {
 }
 
 export default App
+
+*/

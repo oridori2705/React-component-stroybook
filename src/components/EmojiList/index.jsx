@@ -35,11 +35,11 @@ EmojiList.propTypes = {
       emoji: PropTypes.string,
       description: PropTypes.string,
       category: PropTypes.string,
-      aliases: PropTypes.arrayOf(PropTypes.string).isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+      aliases: PropTypes.arrayOf(PropTypes.string),
+      tags: PropTypes.arrayOf(PropTypes.string),
       unicode_version: PropTypes.string,
       ios_version: PropTypes.string
     })
-  ).isRequired
+  )
 }
 export default EmojiList
