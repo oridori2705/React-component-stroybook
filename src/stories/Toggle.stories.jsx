@@ -3,7 +3,9 @@ import Toggle from '../components/Toggle'
 export default {
   title: 'Component/Toggle',
   component: Toggle,
-  argTypes: {}
+  argTypes: {
+    disabled: { control: 'boolean' }
+  }
 }
 
 export const Default = args => {
