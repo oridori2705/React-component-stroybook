@@ -4,6 +4,17 @@ export default {
   title: 'Component/Image',
   component: Image,
   argTypes: {
+    lazy: {
+      control: { type: 'boolean' }
+    },
+    placeholder: {
+      type: { require: true },
+      control: 'text'
+    },
+    threshold: {
+      type: { name: 'number' },
+      control: 'number'
+    },
     src: {
       type: { name: 'string', require: true },
       control: 'text'
@@ -27,6 +38,7 @@ export default {
   },
   args: {
     src: 'https://picsum.photos/200',
+    placeholder: 'https://via.placeholder.com/200',
     width: 300,
     height: 300,
     mode: 'cover',
@@ -40,5 +52,21 @@ export const Default = args => {
       <Image {...args} />
       <Image {...args} />
     </>
+  )
+}
+
+export const Lazy = args => {
+  return (
+    <div>
+      {Array.from(new Array(20), (_, k) => k).map(i => (
+        <Image
+          {...args}
+          lazy
+          block
+          key={i}
+          src={`${args.src}?${i}`}
+        />
+      ))}
+    </div>
   )
 }
