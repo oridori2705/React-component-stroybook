@@ -10,8 +10,7 @@ const Spinner = ({
   size = 24,
   color1 = '#e14b0a',
   color2 = '#f8b26a',
-  loading = true,
-  ...props
+  loading = true
 }) => {
   return loading ? (
     <Icon>
