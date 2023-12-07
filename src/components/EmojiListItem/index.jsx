@@ -24,7 +24,7 @@ const Keyword = styled.div`
 
 const EmojiListItem = ({ emoji }) => {
   return (
-    <ListItem>
+    <ListItem onClick={() => navigator.clipboard.writeText(emoji.emoji)}>
       <Symbol>{emoji.emoji}</Symbol>
       <Title>{emoji.aliases.map(title => title)}</Title>
       <Keyword>{emoji.description}</Keyword>
