@@ -52,7 +52,7 @@ const ToggleInput = styled.input`
 const Toggle = ({ name, on = false, disabled, onChange, ...props }) => {
   const [checked, toggle] = useToggle(on)
 
-  const handleToggle = e => {
+  const handleToggle = () => {
     toggle()
     onChange && onChange()
   }
@@ -69,6 +69,13 @@ const Toggle = ({ name, on = false, disabled, onChange, ...props }) => {
       <ToggleSwitch />
     </ToggleContainer>
   )
+}
+
+Toggle.propTypes = {
+  name: PropTypes.string,
+  on: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func
 }
 
 export default Toggle
