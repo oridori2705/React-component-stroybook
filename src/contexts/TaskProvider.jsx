@@ -1,6 +1,7 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext } from 'react'
 import { v4 } from 'uuid' //랜덤한 id를 만들어줌
 import PropTypes from 'prop-types'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const TaskContext = createContext()
 
@@ -8,7 +9,7 @@ const TaskContext = createContext()
 export const useTasks = () => useContext(TaskContext)
 
 const TaskProvider = ({ children }) => {
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useLocalStorage('key', [])
 
   const addTask = content => {
     setTasks([
