@@ -5,6 +5,10 @@ import { useRef, useState } from 'react'
 const Input = styled.input`
   display: none;
 `
+const UploadContainer = styled.div`
+  display: inline-block;
+  cursor: pointer;
+`
 
 const Upload = ({
   children,
@@ -68,7 +72,7 @@ const Upload = ({
   }
 
   return (
-    <div
+    <UploadContainer
       onClick={handleChooseFile}
       onDrop={handleFileDrop}
       onDragEnter={handleDragEnter}
@@ -87,7 +91,7 @@ const Upload = ({
           자식요소가 jsx 반환하는 함수일 경우 함수에 file을 인수로 넣어서 보내주고, 아니라면 node인 children을 보여준다.
           */}
       {typeof children === 'function' ? children(file, dragging) : children}
-    </div>
+    </UploadContainer>
   )
 }
 
