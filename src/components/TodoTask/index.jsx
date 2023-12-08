@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
 import Toggle from '../Toggle'
+import { useTasks } from '../../contexts/TaskProvider'
 
 const ListItem = styled.li`
   display: flex;
@@ -20,6 +21,7 @@ const Content = styled.span`
   flex: 1;
   margin-left: 8px;
   font-size: 14px;
+  text-decoration: ${({ complete }) => (complete ? 'line-through' : 'none')};
 `
 
 const RemoveButton = styled.button`
@@ -33,17 +35,24 @@ const RemoveButton = styled.button`
   cursor: pointer;
 `
 //content는 provider를 받아서 처리
-const TodoTask = ({ content, complete, ...props }) => {
+const TodoTask = ({ id, content, complete, ...props }) => {
+  const { updateTask, removeTask } = useTasks()
   return (
-    <ListItem>
-      <Toggle on={complete} />
-      <Content>{content}</Content>
-      <RemoveButton>Remove</RemoveButton>
+    <ListItem
+      key={id}
+      {...props}>
+      <Toggle
+        on={complete}
+        onChange={e => updateTask(id, e.target.checked)}
+      />
+      <Content complete={complete}>{content}</Content>
+      <RemoveButton onClick={() => removeTask(id)}>Remove</RemoveButton>
     </ListItem>
   )
 }
 
 TodoTask.propTypes = {
+  id: PropTypes.string,
   content: PropTypes.string,
   complete: PropTypes.bool,
   props: PropTypes.object

@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import Header from './components/Header'
 import TodoNewTaskForm from './components/TodoNewTaskForm'
 import TodoTaskList from './components/TodoTaskList'
+import TaskProvider from './contexts/TaskProvider'
 
 const Container = styled.div`
   width: 400px;
@@ -10,11 +11,13 @@ const Container = styled.div`
 
 function App() {
   return (
-    <Container>
-      <Header>Todo</Header>
-      <TodoNewTaskForm />
-      <TodoTaskList css={{ marginTop: 16 }} />
-    </Container>
+    <TaskProvider>
+      <Container>
+        <Header>Todo</Header>
+        <TodoNewTaskForm />
+        <TodoTaskList css={{ marginTop: 16 }} />
+      </Container>
+    </TaskProvider>
   )
 }
 
