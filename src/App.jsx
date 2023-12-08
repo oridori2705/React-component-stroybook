@@ -1,5 +1,21 @@
+import styled from '@emotion/styled'
+import Header from './components/Header'
+import TodoNewTaskForm from './components/TodoNewTaskForm'
+import TodoTaskList from './components/TodoTaskList'
+
+const Container = styled.div`
+  width: 400px;
+  margin: 0 auto;
+`
+
 function App() {
-  return <div></div>
+  return (
+    <Container>
+      <Header>Todo</Header>
+      <TodoNewTaskForm />
+      <TodoTaskList css={{ marginTop: 16 }} />
+    </Container>
+  )
 }
 
 export default App
