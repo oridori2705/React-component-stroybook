@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 const Header = ({
   children,
   level = 1,
-  strong,
+  strong = true,
   underline,
   color,
   ...props

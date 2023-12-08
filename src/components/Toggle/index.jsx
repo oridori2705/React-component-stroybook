@@ -52,9 +52,12 @@ const ToggleInput = styled.input`
 const Toggle = ({ name, on = false, disabled, onChange, ...props }) => {
   const [checked, toggle] = useToggle(on)
 
-  const handleToggle = () => {
+  //1. Toggle의 onChange를 실행
+  //2. 받아온 onChange를 실행
+
+  const handleToggle = e => {
     toggle()
-    onChange && onChange()
+    onChange && onChange(e)
   }
 
   return (

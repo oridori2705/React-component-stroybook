@@ -42,7 +42,7 @@ export const Horizontal = args => {
     </Spacer>
   )
 }
-export const vertical = args => {
+export const Vertical = args => {
   return (
     <Spacer
       {...args}
