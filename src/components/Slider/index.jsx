@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import PropTypes from 'prop-types'
 
 const SliderContainer = styled.div`
   position: relative;
@@ -77,6 +78,8 @@ const Slider = ({
         setValue(max)
       } else {
         newValue = Math.round(min + ((max - min) * track) / step) * step
+        //step단위로 증감하게 되면 min과 max값을 벗어나게 되는 경우가 생긴다.
+        //아래와 같이 min과 max값을 넘어가지 않도록잡아준다.
         newValue = Math.min(max, Math.max(min, newValue))
       }
       setValue(newValue)
@@ -108,6 +111,14 @@ const Slider = ({
       />
     </SliderContainer>
   )
+}
+
+Slider.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  defaultValue: PropTypes.number,
+  onChange: PropTypes.func
 }
 
 export default Slider
