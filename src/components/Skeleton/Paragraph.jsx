@@ -1,4 +1,5 @@
 import Box from './Box'
+import PropTypes from 'prop-types'
 
 const Paragraph = ({ line = 3, ...props }) => {
   return (
@@ -20,6 +21,9 @@ const Paragraph = ({ line = 3, ...props }) => {
       )}
     </div>
   )
+}
+Paragraph.propTypes = {
+  line: PropTypes.number.isRequired
 }
 
 export default Paragraph

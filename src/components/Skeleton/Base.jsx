@@ -14,7 +14,7 @@ const Base = styled.div`
   animation:
     skeleton--zoom-in 0.2s ease-out,
     skeleton--loading 2s infinite linear;
-  // 없어졌다가 나타나는 효과
+  // 없어졌다가 나타나는 효과(새로고침했을 때)
   @keyframes skeleton--zoom-in {
     0% {
       opacity: 0;
