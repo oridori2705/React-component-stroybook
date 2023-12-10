@@ -26,7 +26,8 @@ const Icon = ({
   const shapeStyle = {
     width: size,
     height: size,
-    transform: rotate ? `rotate(${rotate}deg)` : undefined
+    transform: rotate ? `rotate(${rotate}deg)` : undefined,
+    ...props.style
   }
   const iconStyle = {
     'stroke-width': strokeWidth,
@@ -57,7 +58,8 @@ Icon.propTypes = {
   size: PropTypes.number,
   rotate: PropTypes.number,
   strokeWidth: PropTypes.number,
-  color: PropTypes.string
+  color: PropTypes.string,
+  style: PropTypes.object
 }
 
 export default Icon
