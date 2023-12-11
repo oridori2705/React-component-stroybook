@@ -13,7 +13,7 @@ const Anchor = styled.a`
   text-decoration: none;
 `
 
-const BreadcrumbItem = ({ children, href, active, __TYPE, ...props }) => {
+const BreadcrumbItem = ({ children, href, active, ...props }) => {
   return (
     <BreadcrumbItemContainer {...props}>
       <Anchor href={href}>

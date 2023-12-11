@@ -32,7 +32,7 @@ const Avatar = ({
   placeholder,
   alt,
   mode = 'cover',
-  __TYPE,
+
   ...props
 }) => {
   const [loaded, setLoaded] = useState(false)
