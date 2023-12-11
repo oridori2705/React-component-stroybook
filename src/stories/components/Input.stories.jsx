@@ -1,13 +1,10 @@
-import Select from '../components/Select'
+import Input from '../../components/Input'
 
 export default {
-  title: 'Component/Select',
-  component: Select,
+  title: 'Component/Input',
+  component: Input,
   argTypes: {
     label: {
-      control: 'text'
-    },
-    placeholder: {
       control: 'text'
     },
     block: {
@@ -21,6 +18,9 @@ export default {
     },
     disabled: {
       control: 'boolean'
+    },
+    readOnly: {
+      control: 'boolean'
     }
   },
   args: {
@@ -29,15 +29,10 @@ export default {
     invalid: false,
     required: false,
     disabled: false,
-    placeholder: 'Placeholder'
+    readOnly: false
   }
 }
 
 export const Default = args => {
-  return (
-    <Select
-      data={['Item 1', 'Item 2', { label: 'Item 3', value: 'value' }]}
-      {...args}
-    />
-  )
+  return <Input {...args} />
 }

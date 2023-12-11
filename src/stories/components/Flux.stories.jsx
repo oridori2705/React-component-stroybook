@@ -1,4 +1,4 @@
-import Flux from '../components/Flux'
+import Flux from '../../components/Flux'
 
 export default {
   title: 'Component/Flux'
