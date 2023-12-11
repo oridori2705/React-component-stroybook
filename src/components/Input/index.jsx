@@ -21,7 +21,7 @@ const StyledInput = styled.input`
 const Input = ({
   label,
   block = false,
-  invaild = false,
+  invalid = false,
   required = false,
   disabled = false,
   wrapperProps,
@@ -34,7 +34,7 @@ const Input = ({
       {...wrapperProps}>
       <Label>{label}</Label>
       <StyledInput
-        invalid={invaild}
+        invalid={invalid}
         required={required}
         disabled={disabled}
         readOnly={readOnly}
@@ -47,7 +47,7 @@ const Input = ({
 Input.propTypes = {
   label: PropTypes.string,
   block: PropTypes.bool,
-  invaild: PropTypes.bool,
+  invalid: PropTypes.bool,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   wrapperProps: PropTypes.object,
