@@ -15,7 +15,6 @@ const Popover = styled.div`
 
 export const Default = () => {
   const [show, setShow] = useState(false)
-  console.log('상위가 렌더링 되었어요!')
 
   //useCallback을 사용해서 handler의 useEffect 호출 성능 최적화
   const handleOutsideClick = useCallback(e => {

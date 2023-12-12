@@ -19,7 +19,6 @@ export const Default = () => {
     setImageSize({ width: rect.width, height: rect.height })
   }, [])
   const ref = useResize(handleResize)
-  console.log('렌더링!')
   return (
     <Background ref={ref}>
       <Image
