@@ -14,8 +14,12 @@ const useLocalStorage = (key, initialValue) => {
 
   const setValue = value => {
     try {
-      setStoredValue(value)
-      localStorage.setItem(key, JSON.stringify(value))
+      //만약 받아오는 value가 함수를 받아온다면
+      const valueToStore =
+        typeof value === 'function' ? value(storedValue) : value
+
+      setStoredValue(valueToStore)
+      localStorage.setItem(key, JSON.stringify(valueToStore))
     } catch (e) {
       console.error(e)
     }
