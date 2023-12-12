@@ -7,7 +7,6 @@ const useResize = handler => {
 
   useEffect(() => {
     savedHandler.current = handler
-    console.log('함수 호출')
   }, [handler])
 
   useEffect(() => {
