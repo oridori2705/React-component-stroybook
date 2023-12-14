@@ -57,7 +57,7 @@ const Paint = ({
     setCurrentColor(color)
   }, [color])
 
-  //plugins를 따로둬야 그리기 전의 기록이 남는다.(plugins가 바뀌면 current.get)
+  //plugins를 따로둬야 그리기 전의 기록이 남는다.(canvasRef.current.width = width * scale과 같이 너비나 높이가 설정되면 캔버스가 초기화된다.) -> 이걸해결하려면 복잡해짐
   useEffect(() => {
     //plugin들이 각각 canvas를 가지게함 - props ={[new PenPlugin(), new EraserPlugin(), new DashPlugin()]}
     plugins.forEach(plugin => {

@@ -20,7 +20,7 @@ export class DashPlugin extends Plugin {
     if (this.oldX === -1) this.oldX = x
     if (this.oldY === -1) this.oldY = y
 
-    context.setLineDash([4, 16])
+    context.setLineDash([4, 16]) // 대쉬 기능, 4pixel 16pixel은 생략한다.
 
     if (state === 'draw-started' || state === 'drawing') {
       context.beginPath()
