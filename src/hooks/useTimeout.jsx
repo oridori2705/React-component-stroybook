@@ -6,7 +6,7 @@ const useTimout = (fn, ms) => {
 
   useEffect(() => {
     run()
-    return clear
+    return clear //자동으로 clear
   }, [run, clear])
 
   return clear
