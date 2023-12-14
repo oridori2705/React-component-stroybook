@@ -20,13 +20,14 @@ export class EraserPlugin extends Plugin {
     if (this.oldX === -1) this.oldX = x
     if (this.oldY === -1) this.oldY = y
 
-    context.globalCompositeOperation = 'destination-out'
+    context.globalCompositeOperation = 'destination-out' // 그리는 영역이 지워짐
 
     if (state === 'draw-started' || state === 'drawing') {
       context.beginPath()
       context.moveTo(this.oldX, this.oldY)
       context.lineTo(x, y)
       context.stroke()
+      //closePath를 하면 뚝뚝 끊김
 
       this.oldX = x
       this.oldY = y

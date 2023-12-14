@@ -3,9 +3,9 @@ import Paint from './components/Paint'
 import { DashPlugin, EraserPlugin, PenPlugin } from './components/Paint/plugins'
 
 const App = () => {
-  const [command, setCommand] = useState('pen')
-  const [lineWidth, setLineWidth] = useState(1)
-  const [color, setColor] = useState('#000000')
+  const [command, setCommand] = useState('pen') // 그리기 도구 바꾸는 상태
+  const [lineWidth, setLineWidth] = useState(1) // 굵기 바꾸는 상태
+  const [color, setColor] = useState('#000000') // color 바꾸는 상태
   return (
     <div>
       <div>
@@ -15,7 +15,7 @@ const App = () => {
         <input
           type="range"
           min={1}
-          max={10}
+          max={50}
           defaultValue={1}
           onChange={e => setLineWidth(e.target.value)}
         />

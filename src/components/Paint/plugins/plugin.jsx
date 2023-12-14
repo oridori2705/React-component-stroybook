@@ -3,13 +3,12 @@ export class Plugin {
 
   constructor(initialValues) {
     this.name = ''
-
     Object.assign(this, initialValues)
   }
-
   draw(data) {
     const context = this.canvas.getContext('2d')
 
+    //캔버스는 공용으로 사용하기 떄문에 여기서 초기화해주는 것이다.
     context.globalCompositeOperation = 'source-over'
     context.strokeStyle = data.color
     context.lineCap = 'round'

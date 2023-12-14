@@ -17,14 +17,14 @@ const Paint = ({
   lineWidth = 2, // 브러쉬 굵기
   width = 800, // 캔버스 크기
   height = 600,
-  plugins = [new PenPlugin()],
+  plugins = [new PenPlugin()], // 플러그인에대한 처리(기본값은 PenPlugin)
   style, //커스텀 가능하도록 style과 className
   className
 }) => {
   const [currentCommand, setCurrentCommand] = useState(command)
   const [currentLineWidth, setCurrentLineWidth] = useState(lineWidth)
   const [currentColor, setCurrentColor] = useState(color)
-  const [currentPlugins, setCurrentPlugins] = useState({})
+  const [currentPlugins, setCurrentPlugins] = useState({}) //현재 플로그인을 객체로 초기화한다(name을 통해서 객체로 저장하기 위해)
   const [drawing, setDrawing] = useState(false)
   const canvasRef = useRef() //cavas로부터 context를 받아야 함
 
@@ -44,6 +44,7 @@ const Paint = ({
     height
   }
 
+  //App.jsx에서 도구,색상,굵기가 바뀌면 값을 갱신해줘야한다.
   useEffect(() => {
     setCurrentLineWidth(lineWidth)
   }, [lineWidth])
@@ -56,12 +57,15 @@ const Paint = ({
     setCurrentColor(color)
   }, [color])
 
+  //plugins를 따로둬야 그리기 전의 기록이 남는다.(plugins가 바뀌면 current.get)
   useEffect(() => {
+    //plugin들이 각각 canvas를 가지게함 - props ={[new PenPlugin(), new EraserPlugin(), new DashPlugin()]}
     plugins.forEach(plugin => {
       plugin.canvas = canvasRef.current
     })
 
     setCurrentPlugins(
+      //사용시 name을 통해서 간편하게 사용할 수 있도록 정제함
       Object.assign(
         {},
         ...plugins.map(plugin => ({
@@ -78,7 +82,7 @@ const Paint = ({
     canvasRef.current.width = width * scale
     canvasRef.current.height = height * scale
 
-    canvasRef.current.getContext('2d').scale(scale, scale)
+    canvasRef.current.getContext('2d').scale(scale, scale) // getContext 메서드를 호출하면 해당 요소에 그래픽을 그릴 수 있는 컨텍스트 객체가 반환됩니다.
   }, [scale, width, height]) // useRef로 만든 변수는 의존성 배열에 추가하지 않는 것이 좋다.
 
   // 드로잉 마우스 이벤트 (Down, Move, Up)
@@ -88,7 +92,6 @@ const Paint = ({
 
       //x와y는 상대적인 값 (0,0)으로 됨
       const { x, y } = calculateCoord(e, canvasRef.current)
-
       currentPlugins[currentCommand].draw({
         x,
         y,
@@ -111,7 +114,7 @@ const Paint = ({
       height,
       scale
     ]
-  )
+  ) // 의존성 처리가 중요하다. ( 여기서 plugins를 넣어버리면 플러그인이 바뀔 때 이전에 그린 기록이 없어진다.)
   const handleDrawing = useCallback(
     e => {
       e.preventDefault()
