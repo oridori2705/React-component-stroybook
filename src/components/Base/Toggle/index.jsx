@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import useToggle from '../../hooks/useToggle'
+import { useToggle } from '../../../hooks'
 
 const ToggleContainer = styled.label`
   display: inline-block;
