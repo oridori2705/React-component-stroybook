@@ -1,4 +1,4 @@
-import TodoNewTaskForm from '../../components/TodoNewTaskForm'
+import { TodoNewTaskForm } from '../../components'
 
 export default {
   title: 'Component/TodoNewTaskForm',

@@ -1,4 +1,4 @@
-import TodoTaskList from '../../components/TodoTaskList'
+import { TodoTaskList } from '../../components'
 
 export default {
   title: 'Component/TodoTaskList',

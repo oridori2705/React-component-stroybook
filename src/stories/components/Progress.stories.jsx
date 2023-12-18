@@ -1,4 +1,4 @@
-import Progress from '../../components/Progress'
+import { Progress } from '../../components'
 
 export default {
   title: 'Component/Progress',

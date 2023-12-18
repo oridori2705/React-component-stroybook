@@ -1,5 +1,5 @@
-import Spacer from '../../components/Spacer'
-import PropType from 'prop-types'
+import { Spacer } from '../../components'
+import { PropType } from 'prop-types'
 export default {
   title: 'Component/Spacer',
   component: Spacer,
